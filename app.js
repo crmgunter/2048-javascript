@@ -16,12 +16,27 @@ allSquares.forEach((square) => {
 
 function assignSquareANumber() {
     const randomSquare = Math.floor(Math.random() * squareNumberArray.length)
-    console.log(randomSquare)
     let theChosenOne = document.getElementById(randomSquare)
-    theChosenOne.append('2')
+    console.log(theChosenOne.innerHTML)
+    if (theChosenOne.innerHTML === '') {
+        theChosenOne.append(2)
+    }
 }
 
-document.body.addEventListener('click', function() {
-    console.log('hey')
+document.onkeydown = function checkKey(e) {
+    console.log(e.keyCode)
+    if (e.keyCode === 37) {
+        console.log('left')
+    } else if (e.keyCode === 38) {
+        console.log('up')
+    } else if (e.keyCode === 39) {
+        console.log('right')
+    } else if (e.keyCode === 40) {
+        console.log('down')
+    }
     assignSquareANumber()
-})
+};
+
+// probably need to create four arrays
+// one for each row of squares
+// then will be able to more easily maneuver numbers
